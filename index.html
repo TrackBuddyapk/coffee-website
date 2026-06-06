@@ -11,6 +11,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- ===== Background jingle (loops, starts on arrival) ===== -->
+  <audio id="jingle" loop preload="auto">
+    <source src="assets/jingle.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating sitewide sound control -->
+  <button id="soundToggle" class="sound-fab is-paused" aria-label="Play background music" aria-pressed="false">
+    <span class="sound-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="sound-label">Music</span>
+  </button>
+
   <!-- ===== Header / Nav ===== -->
   <header class="site-header" id="top">
     <nav class="nav container">
@@ -46,6 +58,33 @@
         <span>★★★★★ Loved by locals</span>
         <span class="dot">•</span>
         <span>Open daily · 11 AM–11 PM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Signature Sound / Player ===== -->
+  <section class="player-strip" id="sound" aria-label="Background music player">
+    <div class="container player-inner">
+      <div class="player-meta">
+        <span class="now-playing">Now Playing</span>
+        <strong class="track-title">Velvet Matcha — Mercado Signature Theme</strong>
+        <span class="track-sub">Our in-house jingle, on loop while you browse</span>
+      </div>
+      <div class="player-controls">
+        <button id="playBtn" class="play-btn" aria-label="Play or pause">
+          <span class="ic-play">▶</span>
+          <span class="ic-pause">❚❚</span>
+        </button>
+        <div class="player-bar">
+          <span id="curTime" class="t-time">0:00</span>
+          <input id="seek" class="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+          <span id="durTime" class="t-time">0:00</span>
+        </div>
+        <button id="muteBtn" class="mute-btn" aria-label="Mute or unmute">
+          <span class="ic-vol">🔊</span>
+          <span class="ic-mute">🔇</span>
+        </button>
+        <input id="vol" class="vol" type="range" min="0" max="1" value="0.7" step="0.05" aria-label="Volume" />
       </div>
     </div>
   </section>
